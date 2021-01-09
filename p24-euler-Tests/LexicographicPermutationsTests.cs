@@ -60,8 +60,9 @@ namespace p24_euler_Tests
         {
             List<char> current = new List<char>() { '0', '2', '3', '1' };
             List<char> expected = new List<char>() { '0', '3', '2', '1' };
+            List<char> actual = permu.GetNextPermutation(current);
 
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation(current));
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -70,7 +71,23 @@ namespace p24_euler_Tests
             List<char> current = new List<char>() { '0', '3', '2', '1' };
             List<char> expected = new List<char>() { '1', '0', '2', '3' };
 
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation(current));
+            List<char> actual = permu.GetNextPermutation(current);
+
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void TestGetNextPermutation7()
+        {
+            List<char> current = new List<char>() { '0', '1', '2', '3', '4' };
+            List<char> expected = new List<char>() { '0', '1', '2', '4',, '3' };
+
+            List<char> actual = permu.GetNextPermutation(current);
+
+
+            CollectionAssert.AreEqual(expected, actual);
         }
     }
 }

@@ -6,6 +6,14 @@ namespace p24_euler
 {
     public class Permutations
     {
+        
+        private struct SimpleSwitchingAdPermutationIndexes
+        {
+            // A Simple switching permutation is one where only the characters of two ajacent indizies have two be switched to get the next permutation
+            public int firstInd;
+            public int secInd;
+            public bool iSSimpleSwitchingAjPermutation;
+        }
 
         private static void SwapListElements(List<char> list,  int firstInd, int secInd)
         {
@@ -24,6 +32,46 @@ namespace p24_euler
         {
             SwapListElements(perm, perm.Count - 2, perm.Count - 1);
         }
+
+
+        private SimpleSwitchingAdPermutationIndexes NextPermuationIsCreatedBySwitchingTwoNumbers(List<char> perm)
+        {
+
+            SimpleSwitchingAdPermutationIndexes ssi;
+            ssi.iSSimpleSwitchingAjPermutation = false;
+            ssi.firstInd = -1;
+            ssi.secInd = -1;
+
+            //Special case if the last two numbers are just switchable
+            if (SecondLastCharLowerThanLastChar(perm))
+            {
+                ssi.firstInd = perm.Count - 2;
+                ssi.secInd = perm.Count - 1;
+                ssi.iSSimpleSwitchingAjPermutation = true;
+                return ssi;
+            }
+
+
+            char lastChar = perm[perm.Count - 2];
+
+            for (int i = perm.Count - 3; i >= 1; --i) //Do not use the first number
+            {
+                if(lastChar-1 == perm[i]) //They must be only 1 lexiographic value from each other, otherwise they can't be just switched
+                {
+                    ssi.firstInd = i;
+                    ssi.secInd = i+1;
+                    ssi.iSSimpleSwitchingAjPermutation = true;
+                    return ssi;
+                }
+                else
+                {
+                    lastChar = perm[i];
+                }
+            }                         
+
+            return ssi;
+        }
+
 
         private char GetSmallestChar(List<char> perm)
         {
@@ -63,6 +111,8 @@ namespace p24_euler
             newPerm.Add(AfterStartChar1);
             newPerm.Add(AfterStartChar2);
 
+            endPerm.Sort();
+
             newPerm.AddRange(endPerm);
 
 
@@ -72,11 +122,12 @@ namespace p24_euler
 
         public List<char> GetNextPermutation(List<char> current)
         {
+            SimpleSwitchingAdPermutationIndexes ssi = NextPermuationIsCreatedBySwitchingTwoNumbers(current);
 
-            if (SecondLastCharLowerThanLastChar(current))
+            if (ssi.iSSimpleSwitchingAjPermutation)
             {
-                SwapLastTwoChars(current);
-                return current;
+                SwapListElements(current, ssi.firstInd, ssi.secInd);
+                return current;                
             }
 
             char smallestCharOfLastTwo = GetSmallestChar(current.GetRange(current.Count-2,2));
