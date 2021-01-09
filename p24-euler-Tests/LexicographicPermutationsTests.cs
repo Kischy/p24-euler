@@ -29,29 +29,33 @@ namespace p24_euler_Tests
 
         }
 
-        /*
+        
         [TestMethod]
         public void TestGetNextPermutation4Chars()
         {
             Permutations permu = new Permutations(new List<char>() { '2', '1', '0', '3' });
 
-            List<char> expected = new List<char>() { '0', '1', '2', '3' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            String expected = "0123";
+            Assert.AreEqual(expected, permu.GetPermutation(0));
 
-            expected = new List<char>() { '0', '1', '3', '2' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "0132";
+            Assert.AreEqual(expected, permu.GetPermutation(1));
 
-            expected = new List<char>() { '0', '2', '1', '3' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "0213";
+            Assert.AreEqual(expected, permu.GetPermutation(2));
 
-            expected = new List<char>() { '0', '2', '3', '1' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "0231";
+            Assert.AreEqual(expected, permu.GetPermutation(3));
 
-            expected = new List<char>() { '0', '3', '2', '1' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "0312";
+            Assert.AreEqual(expected, permu.GetPermutation(4));
 
-            expected = new List<char>() { '1', '0', '2', '3' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "0321";
+            Assert.AreEqual(expected, permu.GetPermutation(5));
+
+            expected = "1023";
+            Assert.AreEqual(expected, permu.GetPermutation(6));
+
 
         }
 
@@ -60,26 +64,27 @@ namespace p24_euler_Tests
         {
             Permutations permu = new Permutations(new List<char>() { '2', '1', '0', '3', '4' });
 
-            List<char> expected = new List<char>() { '0', '1', '2', '3', '4' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
 
-            expected = new List<char>() { '0', '1', '2', '4', '3' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            String expected = "01234";
+            Assert.AreEqual(expected, permu.GetPermutation(0));
 
-            expected = new List<char>() { '0', '1', '3', '2', '4' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "01243";
+            Assert.AreEqual(expected, permu.GetPermutation(1));
 
-            expected = new List<char>() { '0', '1', '3', '4', '2' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "01324";
+            Assert.AreEqual(expected, permu.GetPermutation(2));
 
-            expected = new List<char>() { '0', '1', '4', '2', '3' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "01342";
+            Assert.AreEqual(expected, permu.GetPermutation(3));
 
-            expected = new List<char>() { '0', '1', '4', '3', '2' };
-            CollectionAssert.AreEqual(expected, permu.GetNextPermutation());
+            expected = "01423";
+            Assert.AreEqual(expected, permu.GetPermutation(4));
+
+            expected = "01432";
+            Assert.AreEqual(expected, permu.GetPermutation(5));
 
         }
-        */
+        
 
     }
 }

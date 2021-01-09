@@ -22,25 +22,25 @@ namespace p24_euler
         }
 
 
-        private void CalcAllPermutations(String str, int lInd)
+        private void CalcAllPermutations(String str, int ind)
         {
-            if (lInd == str.Length-1)
+            if (ind == str.Length-1)
             {
                 permutations.Add(str);
             }
             else
             {
-                for (int i = lInd; i < str.Length; i++)
+                for (int i = ind; i < str.Length; i++)
                 {
-                    if(lInd == i)
+                    if(ind == i)
                     {
-                        CalcAllPermutations(str, lInd + 1);
+                        CalcAllPermutations(str, ind + 1);
                     }
                     else
                     {
-                        str = SwapCharacters(str, lInd, i);
-                        CalcAllPermutations(str, lInd + 1);
-                        str = SwapCharacters(str, lInd, i);
+                        str = SwapCharacters(str, ind, i);
+                        CalcAllPermutations(str, ind + 1);
+                        str = SwapCharacters(str, ind, i);
                     }
                 }
             }
