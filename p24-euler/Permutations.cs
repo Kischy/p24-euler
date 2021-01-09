@@ -17,12 +17,12 @@ namespace p24_euler
             chars = new String(characters.ToArray());
             permutations = new List<String>();
 
-            CalcAllPermutations(chars, 0);
+            CalcPermutations(chars, 0);
             permutations.Sort();
         }
 
 
-        private void CalcAllPermutations(String str, int ind)
+        private void CalcPermutations(String str, int ind)
         {
             if (ind == str.Length-1)
             {
@@ -34,12 +34,12 @@ namespace p24_euler
                 {
                     if(ind == i)
                     {
-                        CalcAllPermutations(str, ind + 1);
+                        CalcPermutations(str, ind + 1);
                     }
                     else
                     {
                         str = SwapCharacters(str, ind, i);
-                        CalcAllPermutations(str, ind + 1);
+                        CalcPermutations(str, ind + 1);
                         str = SwapCharacters(str, ind, i);
                     }
                 }

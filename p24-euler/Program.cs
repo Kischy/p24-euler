@@ -13,8 +13,7 @@ namespace p24_euler
             Permutations permu = new Permutations(new List<char>() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'});
 
 
-            String answer_p24 = "";
-
+            String answer_p24 = permu.GetPermutation(1000000-1);
 
             Console.WriteLine("The answer to problem 24 of project Euler is " + answer_p24 + ".");
         }
