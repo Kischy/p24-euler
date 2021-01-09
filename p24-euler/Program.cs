@@ -6,7 +6,12 @@ namespace p24_euler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Calculation started");
+
+            int answer_p24 = 0;
+
+
+            Console.WriteLine("The answer to problem 24 of project Euler is " + answer_p24 + ".");
         }
     }
 }
